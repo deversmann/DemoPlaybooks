@@ -4,6 +4,7 @@
   become: yes
   vars:
     apache_test_message: This is a test message
+    apache_webserver_port: 80
 
   tasks:
     - name: Ensure apache is installed
