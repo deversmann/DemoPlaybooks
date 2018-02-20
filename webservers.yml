@@ -32,7 +32,7 @@
       service:
         name: httpd
         state: started
-        enables: yes
+        enabled: yes
 
   handlers:
     - name: restart-apache-service
