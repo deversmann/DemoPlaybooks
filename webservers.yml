@@ -12,6 +12,12 @@
         name: httpd
         state: present
 
+    - name: Open http in the firewall
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+
     - name: Ensure site-enabled directory is present
       file:
         name: /etc/httpd/conf/sites-enabled
