@@ -2,3 +2,6 @@
 - name: Ensure apache is installed and started
   hosts: web
   become: yes
+
+  roles:
+    - role: geerlingguy.mysql
