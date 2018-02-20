@@ -16,6 +16,7 @@
       firewalld:
         service: http
         permanent: true
+        immediate: true
         state: enabled
 
     - name: Ensure site-enabled directory is present
