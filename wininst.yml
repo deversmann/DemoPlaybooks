@@ -1,8 +1,9 @@
 ---
-# This playbook uses the win_ping module to test connectivity to Windows hosts
-- name: Ping 
+- name: Install Notepad++ 
   hosts: windows 
   become: yes
+  become-user: Administrator
+  become-method: runas
 
   tasks:
   - name: notepad 
