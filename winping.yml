@@ -7,3 +7,6 @@
   - name: ping
     win_ping:
 
+  - name: choco
+    win_chocolatey:
+      name: chocolatey
