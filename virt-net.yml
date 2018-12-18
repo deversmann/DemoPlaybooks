@@ -8,4 +8,4 @@
     - name: is it there?
       virt_net:
         state: active
-        name: {{net_name}}
+        name: "{{net_name}}"
