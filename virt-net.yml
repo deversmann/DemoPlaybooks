@@ -2,7 +2,7 @@
 - name: Network Allocation
   hosts: gateway
   vars:
-    net-name: tower-demo
+    net_name: tower-demo
   
   tasks:
     - name: is it there?
