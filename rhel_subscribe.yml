@@ -1,13 +1,13 @@
 ---
-- hosts: all
-  gather_facts: True
+- name: Subscription
+  hosts: all
   vars:
     pool_ids: 8a85f99366f82ecb01670d81a0ba0708
     repo_list:
-      rhel-7-server-rpms
-      rhel-7-server-optional-rpms
-      rhel-7-server-supplementary-rpms
-      rhel-7-server-extras-rpms
+      - rhel-7-server-rpms
+      - rhel-7-server-optional-rpms
+      - rhel-7-server-supplementary-rpms
+      - rhel-7-server-extras-rpms
 
   tasks:
     - name: Install RHSM
