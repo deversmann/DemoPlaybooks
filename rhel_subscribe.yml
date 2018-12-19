@@ -10,26 +10,26 @@
       rhel-7-server-extras-rpms
 
   tasks:
-  - name: Install RHSM
-    yum:
-      name: 'subscription-manager'
-      state: present
-   
-  - name: Register system
-    redhat_subscription:
-      state: present
-      username: '{{ rhsm_username }}'
-      password: '{{ rhsm_password }}'
-      pool_ids: '{{ pool_ids }}'
+    - name: Install RHSM
+      yum:
+        name: 'subscription-manager'
+        state: present
+    
+    - name: Register system
+      redhat_subscription:
+        state: present
+        username: '{{ rhsm_username }}'
+        password: '{{ rhsm_password }}'
+        pool_ids: '{{ pool_ids }}'
 
-  - name: Disable all RHSM repositories
-    rhsm_repository:
-      name: '*'
-      state: disabled
+    - name: Disable all RHSM repositories
+      rhsm_repository:
+        name: '*'
+        state: disabled
 
-  - name: Enable preferred repositories
-    rhsm_repository:
-      name: "{{ item }}"
-      state: enabled
-    with_items: 
-      - "{{ repo_list }}"
+    - name: Enable preferred repositories
+      rhsm_repository:
+        name: "{{ item }}"
+        state: enabled
+      with_items: 
+        - "{{ repo_list }}"
