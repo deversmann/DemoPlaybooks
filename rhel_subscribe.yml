@@ -1,26 +1,36 @@
 ---
 - name: Subscription
   hosts: all
+  gather_facts: True
+  vars:
+    pool_ids: 8a85f99366f82ecb01670d81a0ba0708
+    repo_list:
+      rhel-7-server-rpms
+      rhel-7-server-optional-rpms
+      rhel-7-server-supplementary-rpms
+      rhel-7-server-extras-rpms
 
   tasks:
-#    - name: Install RHSM
-#      yum:
-#        name: subscription-manager
-#        state: present
+    - name: Install RHSM
+      yum:
+        name: 'subscription-manager'
+        state: present
     
-#    - name: Register system
-#      redhat_subscription:
-#        state: present
-#        username: deversmarht
-#        password: R3dH4t!
-#        pool_ids: 8a85f99366f82ecb01670d81a0ba0708
+    - name: Register system
+      redhat_subscription:
+        state: present
+        username: '{{ rhsm_username }}'
+        password: '{{ rhsm_password }}'
+        pool_ids: '{{ pool_ids }}'
 
     - name: Disable all RHSM repositories
       rhsm_repository:
         name: '*'
         state: disabled
 
-#    - name: Enable preferred repositories
-#      rhsm_repository:
-#        name: rhel-7-server-rpms, rhel-7-server-optional-rpms, rhel-7-server-supplementary-rpms, rhel-7-server-extras-rpms
-#        state: enabled
+    - name: Enable preferred repositories
+      rhsm_repository:
+        name: "{{ item }}"
+        state: enabled
+      with_items: 
+        - "{{ repo_list }}"
