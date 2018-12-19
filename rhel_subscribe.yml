@@ -30,7 +30,5 @@
 
     - name: Enable preferred repositories
       rhsm_repository:
-        name: "{{ item }}"
+        name: "{{ repo_list }}"
         state: enabled
-      with_items: 
-        "{{ repo_list }}"
