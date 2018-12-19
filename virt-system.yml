@@ -1,0 +1,9 @@
+---
+- name: VM Allocation
+  hosts: gateway
+  vars:
+    net_name: tower-demo
+  
+  tasks:
+    - name: list
+      command: list_vms
