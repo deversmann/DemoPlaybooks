@@ -27,9 +27,8 @@
       name: '*'
       state: disabled
 
-  -name: Enable preferred repositories
+  - name: Enable preferred repositories
     rhsm_repository:
       name: {{ item }}
       state: enabled
     with_items: {{ repo_list }}
-    
