@@ -1,0 +1,16 @@
+---
+- name: Ensure apache is removed
+  hosts: all
+
+  tasks:
+    - name: Ensure apache is removed
+      yum:
+        name: httpd
+        state: absent
+
+    - name: Ensure site-enabled directory is removed
+      file:
+        name: /etc/httpd
+        state: absent
+
+ 
