@@ -6,4 +6,5 @@
   
   tasks:
     - name: list
-      command: list_vms
+      virt: 
+        command: list_vms
