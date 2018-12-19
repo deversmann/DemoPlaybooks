@@ -1,8 +1,7 @@
 ---
 - name: Ensure apache is installed and started
-  hosts: web
+  hosts: all
   vars:
-    apache_test_message: This is a test message
     apache_webserver_port: 80
 
   tasks:
