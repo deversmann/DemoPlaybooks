@@ -1,7 +1,6 @@
 ---
 - name: Subscription
   hosts: all
-  gather_facts: True
   vars:
     pool_ids: 8a85f99366f82ecb01670d81a0ba0708
     repo_list:

@@ -1,0 +1,11 @@
+---
+- name: Ensure apache files are loaded
+  hosts: all
+  vars:
+    apache_test_message: This is a test message
+
+  tasks:
+    - name: Ensure latest index.html is present
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html

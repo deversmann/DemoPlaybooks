@@ -1,0 +1,35 @@
+---
+- name: Ensure apache is installed and started
+  hosts: web
+  vars:
+    apache_test_message: This is a test message
+    apache_webserver_port: 80
+
+  tasks:
+    - name: Ensure apache is installed
+      yum:
+        name: httpd
+        state: present
+
+    - name: Ensure site-enabled directory is present
+      file:
+        name: /etc/httpd/conf/sites-enabled
+        state: directory
+
+    - name: Ensure latest httpd.conf is present
+      template:
+        src: templates/httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+      notify: restart-apache-service
+
+    - name: Ensure apache is started and enabled
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: restart-apache-service
+      service:
+        name: httpd
+        state: restarted
