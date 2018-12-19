@@ -22,10 +22,10 @@
         password: '{{ rhsm_password }}'
         pool_ids: '{{ pool_ids }}'
 
-    - name: Disable all RHSM repositories
-      rhsm_repository:
-        name: '*'
-        state: disabled
+#    - name: Disable all RHSM repositories
+#      rhsm_repository:
+#        name: '*'
+#        state: disabled
 
     - name: Enable preferred repositories
       rhsm_repository:
