@@ -20,7 +20,7 @@
         state: present
         username: '{{ rhsm_username }}'
         password: '{{ rhsm_password }}'
-        pool_ids: '{{ pool_ids }}'
+        pool_ids: '8a85f99366f82ecb01670d81a0ba0708'
 
 #    - name: Disable all RHSM repositories
 #      rhsm_repository:
