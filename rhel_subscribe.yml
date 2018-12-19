@@ -18,8 +18,8 @@
     - name: Register system
       redhat_subscription:
         state: present
-        username: '{{ rhsm_username }}'
-        password: '{{ rhsm_password }}'
+        username: deversmarht
+        password: R3dH4t!
         pool_ids: 8a85f99366f82ecb01670d81a0ba0708
 
     - name: Disable all RHSM repositories
