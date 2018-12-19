@@ -3,11 +3,7 @@
   hosts: all
   vars:
     pool_ids: 8a85f99366f82ecb01670d81a0ba0708
-    repo_list:
-      - rhel-7-server-rpms
-      - rhel-7-server-optional-rpms
-      - rhel-7-server-supplementary-rpms
-      - rhel-7-server-extras-rpms
+    repo_list: rhel-7-server-rpms, rhel-7-server-optional-rpms, rhel-7-server-supplementary-rpms, rhel-7-server-extras-rpms
 
   tasks:
     - name: Install RHSM
@@ -29,7 +25,5 @@
 
     - name: Enable preferred repositories
       rhsm_repository:
-        name: "{{ item }}"
+        name: "{{ repo_list }}"
         state: enabled
-      with_items: 
-        - "{{ repo_list }}"
